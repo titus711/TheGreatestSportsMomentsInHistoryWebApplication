@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<style>
+.error {
+	color: red;
+}
+.inputform {
+	border: 1px solid black;
+	margin: auto;
+	width: 80%;
+	border-radius: 5px;
+	background-color: #eee;
+	padding: 20px;
+	color: black;
+}
+.centredheadline {
+	
+	text-align:centre;
+}
+</style>
+</h:head>
+
+<body>
+
+<div class="inputform">
+	<h:form>
+		<h:commandButton action="#{formControllers.showEntryForm()}"
+			value="Create a new sport moment" />
+		<br />
+		<br />
+		<h:commandButton action="#{formControllers.showIndex()}"
+			value="Show All" />
+		<br />
+		<br />
+	</h:form>
+</div>
+  <br/><br/>
+	<div class="inputform">
+
+		<h1  class="centredheadline">Please fill out the form!</h1>
+
+		<h:form>
+
+
+
+			<br />
+			<br />
+ Tell me the greatest sport moment:
+ <h:inputTextarea rows="5" cols="40"
+				value="#{greatestSportsMoment.sporting_moment}"
+				label="Tell me the greatest sport moment " required="true"
+				id="moment_title"
+				requiredMessage="the greatest sports moment field is mandatory" />
+			<h:message for="moment_title" styleClass="error" />
+			<br />
+			<br />
+ 
+
+ Now describe the moment for me:
+ <h:inputTextarea value="#{greatestSportsMoment.moment_description}"
+				rows="6" cols="50" label=" Now describe the moment for me"
+				required="true" id="moment_description"
+				requiredMessage="Description field is mandatory" />
+			<h:message for="moment_description" styleClass="error" />
+			<br />
+			<br />
+ 
+ Moment year:
+ <h:inputText value="#{greatestSportsMoment.moment_year}"
+				label="Moment year " required="true" id="moment_year"
+				requiredMessage="Please fill out this field!" />
+			<h:message for="moment_year" styleClass="error" />
+
+			<br />
+			<br />
+  
+  Team or individual name outstanding:
+ <h:inputText
+				value="#{greatestSportsMoment.team_or_individual_name_outstanding}"
+				label="Team or individual name outstanding" required="true"
+				id="moment_perfomers" requiredMessage="Please fill out this field!" />
+			<h:message for="moment_perfomers" styleClass="error" />
+
+			<br />
+			<br />
+  
+ Rate this moment:
+<h:selectOneRadio value="#{greatestSportsMoment.moment_rating}"
+				label="Rate this moment" required="true" id="moment_value"
+				requiredMessage="Ratings for that sporting moment is to be provided!">
+				<f:selectItem itemLabel="One" itemValue="1" />
+				<f:selectItem itemLabel="Two" itemValue="2" />
+				<f:selectItem itemLabel="Three" itemValue="3" />
+				<f:selectItem itemLabel="Four" itemValue="4" />
+				<f:selectItem itemLabel="Five" itemValue="5" />
+				<f:selectItem itemLabel="Six" itemValue="6" />
+				<f:selectItem itemLabel="Seven" itemValue="7" />
+				<f:selectItem itemLabel="Eight" itemValue="8" />
+				<f:selectItem itemLabel="Nine" itemValue="9" />
+				<f:selectItem itemLabel="Ten" itemValue="10" />
+			</h:selectOneRadio>
+			<h:message for="moment_value" styleClass="error" />
+			<br />
+			<br />
+
+			<p>
+				<h:commandButton action="#{formControllers.onSubmitCreate()}"
+					value="Create" />
+			</p>
+		</h:form>
+
+	</div>
+</body>
+
+</html>

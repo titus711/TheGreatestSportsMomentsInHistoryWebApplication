@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	
+	<style>
+.inputform {
+	border: 1px solid black;
+	margin: auto;
+	width: 80%;
+	border-radius: 5px;
+	background-color: #eee;
+	padding: 10px;
+	color: green;
+}
+</style>
+</h:head>
+
+<body>
+
+	<div class="inputform">
+
+
+
+		<h1>Response status:</h1>
+		<br /> <br /> Sport Moment:
+		<h:outputLabel value="#{greatestSportsMoment.sporting_moment}" />
+		<br /> <br /> Moment Description:
+		<h:outputLabel value="#{greatestSportsMoment.moment_description}" />
+		<br /> <br /> Moment Year:
+		<h:outputLabel value="#{greatestSportsMoment.moment_year}" />
+		<br /> <br /> Team or individual name outstanding:
+		<h:outputLabel
+			value="#{greatestSportsMoment.team_or_individual_name_outstanding}" />
+		<br /> <br /> Moment rating:
+		<h:outputLabel value="#{greatestSportsMoment.moment_rating}" />
+		<br /> <br />
+	</div>
+
+
+
+</body>
+
+</html>

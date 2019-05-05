@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+	<style>
+
+
+.inputform {
+	border: 1px solid black;
+	margin: auto;
+	width: 80%;
+	border-radius: 5px;
+	background-color: #eee;
+	padding: 20px;
+	color: black;
+}
+
+.centredheadline {
+	
+	text-align:centre;
+}
+</style>
+
+</h:head>
+
+<body >
+
+
+
+
+
+	<div class="inputform">
+		<h:form>
+			<h:commandButton action="#{formControllers.showEntryForm()}"
+				value="Create a new sport moment" />
+			<br />
+			<br />
+			<h:commandButton action="#{formControllers.showIndex()}"
+				value="Show All" />
+			<br />
+			<br />
+		</h:form>
+	</div>
+	
+	<br/><br/>
+	
+
+	<div class="inputform">
+
+		<h1 class="centredheadline">These are a few of my greatest
+			Sporting Moments!</h1>
+
+		<h:dataTable value="#{formControllers.fetchAll()}" var="thing">
+
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{thing.id}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Sporting Moment</f:facet>
+				<h:outputText value="#{thing.sporting_moment}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Moment Description</f:facet>
+				<h:outputText value="#{thing.moment_description}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Moment Year</f:facet>
+				<h:outputText value="#{thing.moment_year}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Outstanding Perfomers</f:facet>
+				<h:outputText value="#{thing.team_or_individual_name_outstanding}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Delete</f:facet>
+				<h:form>
+					<h:commandButton action="#{formControllers.OnDelete(thing)}"
+						value="Delete me" />
+				</h:form>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Edits</f:facet>
+				<h:form>
+					<h:commandButton action="#{formControllers.onShowEdit(thing)}"
+						value="Edit me" />
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+	</div>
+</body>
+
+
+</html>
